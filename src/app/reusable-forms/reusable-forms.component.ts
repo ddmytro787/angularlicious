@@ -27,10 +27,6 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class ReusableFormsComponent {
 	form = new FormGroup({
 		displayName: new FormControl(),
-		deliveryAddress: new FormGroup({
-			zipCode: new FormControl(),
-			address: new FormControl(),
-		}),
 	});
 
 	submit(): void {

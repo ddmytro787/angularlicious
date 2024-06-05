@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ControlContainer, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ControlContainer, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-address-form-group',
@@ -27,4 +27,20 @@ import { ControlContainer, ReactiveFormsModule } from '@angular/forms';
 		},
 	],
 })
-export class AddressFormGroupComponent {}
+export class AddressFormGroupComponent implements OnInit {
+	parentContainer = inject(ControlContainer);
+
+	get parentFormGroup(): FormGroup {
+		return this.parentContainer.control as FormGroup;
+	}
+
+	ngOnInit(): void {
+		this.parentFormGroup.addControl(
+			'deliveryAddress',
+			new FormGroup({
+				zipCode: new FormControl(),
+				address: new FormControl(),
+			}),
+		);
+	}
+}
