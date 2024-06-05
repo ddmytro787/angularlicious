@@ -8,4 +8,11 @@ export const routes: Routes = [
 				(cmp) => cmp.CompositionApiComponent,
 			),
 	},
+	{
+		path: 'reusable-forms',
+		loadComponent: () =>
+			import('./reusable-forms/reusable-forms.component').then(
+				(cmp) => cmp.ReusableFormsComponent,
+			),
+	},
 ];

@@ -32,6 +32,7 @@ import { MatListModule } from '@angular/material/list';
 				<mat-drawer #drawer mode="side">
 					<mat-list (click)="drawer.close()">
 						<mat-list-item routerLink="/composition-api">Composition API</mat-list-item>
+						<mat-list-item routerLink="/reusable-forms">Reusable Forms</mat-list-item>
 					</mat-list>
 				</mat-drawer>
 				<div class="ags-page">
