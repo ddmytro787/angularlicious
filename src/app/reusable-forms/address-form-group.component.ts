@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ControlContainer, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-address-form-group',
@@ -20,5 +20,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 	`,
 	styles: ``,
 	changeDetection: ChangeDetectionStrategy.OnPush,
+	viewProviders: [
+		{
+			provide: ControlContainer,
+			useFactory: () => inject(ControlContainer, { skipSelf: true }),
+		},
+	],
 })
 export class AddressFormGroupComponent {}

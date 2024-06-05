@@ -34,6 +34,6 @@ export class ReusableFormsComponent {
 	});
 
 	submit(): void {
-		console.log('Submit');
+		console.log('Submit', this.form.value);
 	}
 }
